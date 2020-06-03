@@ -15,8 +15,6 @@
 </head>
 
 <body>
-
-Why don't html?? fuck
 </body>
 </html>
 
