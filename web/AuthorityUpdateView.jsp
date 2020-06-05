@@ -32,7 +32,7 @@
             <option value="M">M</option>
         </select>
         <input type="submit" value="수정">
-        <button onclick="self.close();">취소</button>
+        <button onclick="closef()">취소</button>
     </form>
 </div>
 <script>
@@ -42,6 +42,11 @@
         document.updatef.id_text.value = sampletext;
     }
     receive_id();
+
+    function closef() {
+        window.opener.parent.location.reload();
+        self.close();
+    }
 </script>
 </body>
 </html>

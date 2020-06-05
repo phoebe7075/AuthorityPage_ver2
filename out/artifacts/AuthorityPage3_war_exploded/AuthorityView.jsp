@@ -99,29 +99,65 @@
         }
     }
     function enrollPopUp(){
-        window.open("AuthorityEnrollView.jsp","등록창","width=400, height=300, left=300, top=300");
+        openpopUp("AuthorityEnrollView.jsp","등록창","width=400, height=300, left=300, top=300");
     }
+
+
+    var openpopUp = function (uri, name, options) {
+        var win = window.open(uri , name , options);
+        var interval = window.setInterval(function () {
+            try{
+                if (win == null || win.closed) {
+                    window.clearInterval(interval);
+                    window.location.reload();
+                }
+            }catch (e) {
+
+            }
+        },1000);
+    };
+
     function deletePopUp() {
         var checkbox = $("input:checkbox[name=columncheck]:checked");
-        var col1 = "";
-        var col2 = "";
-        checkbox.each(function (i) {
-            var tr = checkbox.parent().parent().eq(i);
-            var td = tr.children();
-            col1 = td.eq(1).text();
-            col2 = td.eq(2).text();
-        });
-        var really = confirm( "정말로 삭제하시겠습니까?" );
-        if (really)
-        {
-            var url = 'Delete?id=' + col1 + '&name=' +col2;
-            window.open(url,"삭제창","width=400, height=300, left=300, top=300");
+        if($("input:checkbox[name=columnheck]").is(":checked") == true) {
+            var col1 = "";
+            var col2 = "";
+            checkbox.each(function (i) {
+                var tr = checkbox.parent().parent().eq(i);
+                var td = tr.children();
+                col1 = td.eq(1).text();
+                col2 = td.eq(2).text();
+            });
+            var really = confirm("정말로 삭제하시겠습니까?");
+            if (really) {
+                var url = 'Delete?id=' + col1 + '&name=' + col2;
+                var win = window.open(url, "삭제창", "width=400, height=300, left=300, top=300");
+                var interval = window.setInterval(function () {
+                    try {
+                        if (win == null || win.closed) {
+                            window.clearInterval(interval);
+                            window.location.reload();
+                        }
+                    } catch (e) {
+                    }
+                }, 1000);
+            }
+        }
+        else{
+            alert("체크박스로 삭제할 항목을 선택해 주시기 바랍니다.");
         }
     }
-    var updateWin
     function updatePopUp(){
-        updateWin = window.open("AuthorityUpdateView.jsp","수정창","width=400, height=300, left=300, top=300");
-        setUpdateid();
+        var checkbox = $("input:checkbox[name=columncheck]:checked");
+        if (checkbox.next() != null)
+        {
+            openpopUp("AuthorityUpdateView.jsp","수정창","width=400, height=300, left=300, top=300");
+            setUpdateid();
+        }
+        else
+        {
+            alert("체크박스로 수정할 항목을 선택해 주시기 바랍니다.");
+        }
     }
     function setUpdateid()
     {

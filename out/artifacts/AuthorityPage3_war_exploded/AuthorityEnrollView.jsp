@@ -17,9 +17,14 @@
             <option value="M">M</option>
         </select>
         <input type="submit" value="등록">
-        <button onclick="self.close();">취소</button>
+        <button onclick="closef()">취소</button>
     </form>
 </div>
-
+<script>
+    function closef() {
+            window.opener.parent.location.reload();
+            self.close();
+    }
+</script>
 </body>
 </html>

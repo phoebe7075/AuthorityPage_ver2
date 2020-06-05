@@ -5,6 +5,16 @@
   Time: 오후 8:56
   To change this template use File | Settings | File Templates.
 --%>
+
+<%--
+ 모둘 설계자 : 김인환
+
+ 검토자 : 박성용, 김주현
+ 검토 날짜: 06/05
+
+ 수정 일자: 06/05
+ 수정 내용: text input에 readonly 속성 추가
+ --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,14 +25,14 @@
 
 <div>
     <form action="Update" name = "updatef">
-        <label>id <input type="text" name="id_text" id="inp1"></label>
+        <label>id <input type="text" name="id_text" id="inp1" readonly></label>
         <br>
         <select name="authority">
             <option value="A">A</option>
             <option value="M">M</option>
         </select>
         <input type="submit" value="수정">
-        <button onclick="self.close();">취소</button>
+        <button onclick="closef()">취소</button>
     </form>
 </div>
 <script>
@@ -32,6 +42,11 @@
         document.updatef.id_text.value = sampletext;
     }
     receive_id();
+
+    function closef() {
+        window.opener.parent.location.reload();
+        self.close();
+    }
 </script>
 </body>
 </html>
