@@ -13,6 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/*
+ 모둘 설계자 : 김인환
+
+ 검토자 : 박성용, 김주현
+ 검토 날짜: 06/05
+
+ 수정 일자:
+ 수정 내용:
+
+ */
+
+
 @WebServlet("/AuthorityView")
 public class AuthorityController  extends HttpServlet {
     private AuthorityDAO authorityDAO = new AuthorityDAO();
