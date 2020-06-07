@@ -6,6 +6,15 @@
   Time: 오후 2:51
   To change this template use File | Settings | File Templates.
 --%>
+<%--
+ 모둘 설계자 : 김인환
+
+ 검토자 : 박성용, 김주현
+ 검토 날짜: 06/05
+
+ 수정 일자: 06/05
+ 수정 내용: 팝업창 닫힐때 조회화면 초기화하게 하는 기능 추가, 삭제,수정시 체크박스에 체크 안했다면 삭제,수정창 진입못하는 기능 추가
+ --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -119,7 +128,7 @@
 
     function deletePopUp() {
         var checkbox = $("input:checkbox[name=columncheck]:checked");
-        if($("input:checkbox[name=columnheck]").is(":checked") == true) {
+        if($("input:checkbox[name=columncheck]:checked").length == 1) {
             var col1 = "";
             var col2 = "";
             checkbox.each(function (i) {
@@ -149,7 +158,7 @@
     }
     function updatePopUp(){
         var checkbox = $("input:checkbox[name=columncheck]:checked");
-        if (checkbox.next() != null)
+        if($("input:checkbox[name=columncheck]:checked").length == 1)
         {
             openpopUp("AuthorityUpdateView.jsp","수정창","width=400, height=300, left=300, top=300");
             setUpdateid();

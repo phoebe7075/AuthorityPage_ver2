@@ -10,7 +10,7 @@
 <body>
 <div>
     <form action="Enroll">
-        <label>id <input type="text" name="id_text"></label>
+        <label>id <input type="text" name="id_text" required></label>
         <br>
         <select name="authority">
             <option value="A">A</option>

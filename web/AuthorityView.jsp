@@ -128,7 +128,7 @@
 
     function deletePopUp() {
         var checkbox = $("input:checkbox[name=columncheck]:checked");
-        if($("input:checkbox[name=columnheck]").is(":checked") == true) {
+        if($("input:checkbox[name=columncheck]:checked").length == 1) {
             var col1 = "";
             var col2 = "";
             checkbox.each(function (i) {
@@ -158,7 +158,7 @@
     }
     function updatePopUp(){
         var checkbox = $("input:checkbox[name=columncheck]:checked");
-        if($("input:checkbox[name=columnheck]").is(":checked") == true)
+        if($("input:checkbox[name=columncheck]:checked").length == 1)
         {
             openpopUp("AuthorityUpdateView.jsp","수정창","width=400, height=300, left=300, top=300");
             setUpdateid();
