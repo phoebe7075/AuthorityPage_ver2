@@ -23,7 +23,7 @@ public class AuthorityDAO {
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM Authority";
+        String sql = "SELECT * FROM Authorization";
         ArrayList<AuthorityDTO> articles = new ArrayList<AuthorityDTO>();
         try{
             conn = ds.getConnection();
@@ -34,9 +34,9 @@ public class AuthorityDAO {
             st = conn.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()){
-                String id = rs.getString("Authority_ID");
-                String aname = rs.getString("Authority_Name");
-                AuthorityDTO dto = new AuthorityDTO(id,aname);
+                int id = rs.getInt("Authority_ID");
+                String mid = rs.getString("Member_ID");
+                AuthorityDTO dto = new AuthorityDTO(id,mid);
                 articles.add(dto);
             }
         }catch (SQLException e){
@@ -48,7 +48,7 @@ public class AuthorityDAO {
     public void insert(AuthorityDTO dto){
         Connection conn= null;
         PreparedStatement pst = null;
-        String sql = "INSERT INTO Authority (`Authority_ID`,`Authority_Name`) VALUES (?,?)";
+        String sql = "INSERT INTO Authorization (`Authority_ID`,`Member_ID`) VALUES (?,?)";
         try{
             conn = ds.getConnection();
         }catch (SQLException e){
@@ -56,8 +56,8 @@ public class AuthorityDAO {
         }
         try{
             pst = conn.prepareStatement(sql);
-            pst.setString(1,dto.getID());
-            pst.setString(2,dto.getAuthorityName());
+            pst.setInt(1,dto.getAuthority_ID());
+            pst.setString(2,dto.getMember_ID());
             pst.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class AuthorityDAO {
     public void delete(AuthorityDTO dto){
         Connection conn= null;
         PreparedStatement pst = null;
-        String sql = "DELETE FROM `Authority` WHERE `Authority_ID`=? AND `Authority_Name`=?";
+        String sql = "DELETE FROM `Authorization` WHERE `Authority_ID`=? AND `Member_ID`=?";
         try{
             conn = ds.getConnection();
         }catch (SQLException e){
@@ -75,8 +75,8 @@ public class AuthorityDAO {
         }
         try{
             pst = conn.prepareStatement(sql);
-            pst.setString(1,dto.getID());
-            pst.setString(2,dto.getAuthorityName());
+            pst.setInt(1,dto.getAuthority_ID());
+            pst.setString(2,dto.getMember_ID());
             pst.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -87,7 +87,7 @@ public class AuthorityDAO {
     {
         Connection conn= null;
         PreparedStatement pst = null;
-        String sql = "UPDATE Authority SET `Authority_Name`=? WHERE `Authority_ID`=?";
+        String sql = "UPDATE Authorization SET `Authority_Name`=? WHERE `Member_ID`=?";
         try{
             conn = ds.getConnection();
         }catch (SQLException e){
@@ -95,8 +95,8 @@ public class AuthorityDAO {
         }
         try{
             pst = conn.prepareStatement(sql);
-            pst.setString(1,dto.getAuthorityName());
-            pst.setString(2,dto.getID());
+            pst.setInt(1,dto.getAuthority_ID());
+            pst.setString(2,dto.getMember_ID());
             pst.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

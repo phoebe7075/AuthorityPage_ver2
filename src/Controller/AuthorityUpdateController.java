@@ -29,8 +29,8 @@ public class AuthorityUpdateController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id_text");
-        String name = req.getParameter("authority");
+        int id = Integer.parseInt(req.getParameter("authoirity_Id"));
+        String name = req.getParameter("id_text");
         AuthorityDTO dto = new AuthorityDTO(id, name);
         authorityDAO.update(dto);
 

@@ -1,27 +1,28 @@
 package persistance;
 
 public class AuthorityDTO {
-    private String ID;
-    private String AuthorityName;
+    private int Authority_ID;
+    private String Member_ID;
 
-    public AuthorityDTO(String id, String aname){
+    public AuthorityDTO(int id, String mid){
         super();
-        this.ID=id;
-        this.AuthorityName=aname;
-    }
-    public void setAuthorityName(String authorityName) {
-        AuthorityName = authorityName;
+        this.Authority_ID=id;
+        this.Member_ID=mid;
     }
 
-    public void setID(String ID) {
-            this.ID = ID;
+    public int getAuthority_ID() {
+        return Authority_ID;
     }
 
-    public String getAuthorityName() {
-        return AuthorityName;
+    public void setAuthority_ID(int authority_ID) {
+        Authority_ID = authority_ID;
     }
 
-    public String getID() {
-        return ID;
+    public String getMember_ID() {
+        return Member_ID;
+    }
+
+    public void setMember_ID(String member_ID) {
+        Member_ID = member_ID;
     }
 }

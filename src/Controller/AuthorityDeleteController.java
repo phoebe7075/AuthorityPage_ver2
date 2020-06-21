@@ -27,8 +27,8 @@ public class AuthorityDeleteController extends  HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
-        String name = req.getParameter("name");
+        int id = Integer.parseInt(req.getParameter("name"));
+        String name = req.getParameter("id");
         AuthorityDTO dto = new AuthorityDTO(id, name);
         authorityDAO.delete(dto);
     }
