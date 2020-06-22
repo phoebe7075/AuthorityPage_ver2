@@ -29,7 +29,7 @@ public class Mysql extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost/객소모델?characterEncoding=utf8&serverTimezone=UTC&useSSL=false";
+        String url = "jdbc:mysql://localhost/sogongdo?characterEncoding=utf8&serverTimezone=UTC&useSSL=false";
         String user = "root";
         String pw = "apdlvmf1";
 

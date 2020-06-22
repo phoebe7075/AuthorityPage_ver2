@@ -11,5 +11,5 @@
         password="apdlvmf1"
         testOnBorrow="true"
         dirverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost/객소모델?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false"/>
+        url="jdbc:mysql://localhost/sogongdo?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false"/>
 </Context>

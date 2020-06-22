@@ -87,8 +87,8 @@
                 <td class="ch">
                     <input type="checkbox" name="columncheck" onclick="oneCheckbox(this)">
                 </td>
-                <td class="id">${dto.Member_ID}</td>
-                <td class="info">${dto.Authority_ID}</td>
+                <td class="id">${dto.getMember_ID()}</td>
+                <td class="info">${dto.getAuthority_ID()}</td>
             </tr>
             <% } %>
         </table>

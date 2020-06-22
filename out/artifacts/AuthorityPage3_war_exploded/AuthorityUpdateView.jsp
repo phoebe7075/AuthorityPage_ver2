@@ -27,10 +27,7 @@
     <form action="Update" name = "updatef">
         <label>id <input type="text" name="id_text" id="inp1" readonly></label>
         <br>
-        <select name="authority">
-            <option value="A">A</option>
-            <option value="M">M</option>
-        </select>
+        <label>권한id(정수형) <input type="text" name="authoirity_Id" required></label>
         <input type="submit" value="수정">
         <button onclick="closef()">취소</button>
     </form>

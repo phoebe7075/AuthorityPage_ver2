@@ -74,8 +74,8 @@
            <thead>
             <tr>
                 <td class="ch">체크박스</td>
-                <td class="id">ID</td>
-                <td class="info">권한</td>
+                <td class="id">사용자ID</td>
+                <td class="info">권한ID</td>
             </tr>
            </thead>
             <%
@@ -87,8 +87,8 @@
                 <td class="ch">
                     <input type="checkbox" name="columncheck" onclick="oneCheckbox(this)">
                 </td>
-                <td class="id">${dto.ID}</td>
-                <td class="info">${dto.authorityName}</td>
+                <td class="id">${dto.getMember_ID()}</td>
+                <td class="info">${dto.getAuthority_ID()}</td>
             </tr>
             <% } %>
         </table>

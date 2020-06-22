@@ -23,7 +23,7 @@ public class AuthorityDAO {
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM Authorization";
+        String sql = "SELECT * FROM `authorization`";
         ArrayList<AuthorityDTO> articles = new ArrayList<AuthorityDTO>();
         try{
             conn = ds.getConnection();
@@ -48,7 +48,7 @@ public class AuthorityDAO {
     public void insert(AuthorityDTO dto){
         Connection conn= null;
         PreparedStatement pst = null;
-        String sql = "INSERT INTO Authorization (`Authority_ID`,`Member_ID`) VALUES (?,?)";
+        String sql = "INSERT INTO authorization (`Authority_ID`,`Member_ID`) VALUES (?,?)";
         try{
             conn = ds.getConnection();
         }catch (SQLException e){
@@ -67,7 +67,7 @@ public class AuthorityDAO {
     public void delete(AuthorityDTO dto){
         Connection conn= null;
         PreparedStatement pst = null;
-        String sql = "DELETE FROM `Authorization` WHERE `Authority_ID`=? AND `Member_ID`=?";
+        String sql = "DELETE FROM `authorization` WHERE `Authority_ID`=? AND `Member_ID`=?";
         try{
             conn = ds.getConnection();
         }catch (SQLException e){
@@ -87,7 +87,7 @@ public class AuthorityDAO {
     {
         Connection conn= null;
         PreparedStatement pst = null;
-        String sql = "UPDATE Authorization SET `Authority_Name`=? WHERE `Member_ID`=?";
+        String sql = "UPDATE `authorization` SET `Authority_Name`=? WHERE `Member_ID`=?";
         try{
             conn = ds.getConnection();
         }catch (SQLException e){
